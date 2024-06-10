@@ -1,12 +1,5 @@
 
-# Setup Docker Para Projetos Laravel (8, 9, 10 ou 11)
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
-
 ### Passo a passo
-Clone Repositório
-```sh
-git clone https://github.com/especializati/setup-docker-laravel.git
-```
 
 Clone os Arquivos do Laravel
 ```sh
@@ -31,7 +24,6 @@ cp .env.example .env
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-APP_NAME="Especializa Ti"
 APP_URL=http://localhost:8989
 
 DB_CONNECTION=mysql
@@ -62,12 +54,10 @@ Acessar o container
 docker-compose exec app bash
 ```
 
-
 Instalar as dependências do projeto
 ```sh
 composer install
 ```
-
 
 Gerar a key do projeto Laravel
 ```sh
