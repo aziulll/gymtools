@@ -1,9 +1,9 @@
 
 ### Passo a passo
 
-Clone os Arquivos do Laravel
+Clone os Arquivos
 ```sh
-git clone https://github.com/laravel/laravel.git app-laravel
+git clone https://github.com/aziulll/gymtools.git
 ```
 
 Crie o Arquivo .env
