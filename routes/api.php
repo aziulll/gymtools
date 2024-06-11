@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthProfessionalController;
 use App\Http\Controllers\ExercisesController;
 use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\TrainingController;
+use App\Models\Training;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('register/aqui', [AuthProfessionalController::class, 'register']);
+Route::post('register', [AuthProfessionalController::class, 'register']);
 Route::post('login', [AuthProfessionalController::class, 'login'])->name('login');
 Route::post('logout', [AuthProfessionalController::class, 'logout'])->middleware('auth:sanctum');
 
@@ -33,4 +35,13 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('exercise/{id}', [ExercisesController::class, 'show']);
         Route::put('exercise/{id}', [ExercisesController::class, 'update']);
     });
+
+    Route::prefix('training')->group (function () {
+        Route::post('training/new', [TrainingController::class, 'store']);
+        Route::get('/', [TrainingController::class, 'index']);
+        Route::get('training/{id}', [TrainingController::class, 'show']);
+        Route::put('training/{id}', [TrainingController::class, 'update']);
+    });
 });
+
+

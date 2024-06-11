@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('exercises', function (Blueprint $table) {
+        Schema::create('trainings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('muscle_group');
-            $table->string('tag');
-            $table->string('link');
+            $table->unsignedBigInteger('id_patient');
+            $table->string('objetive');
+            $table->date('initial_date');
+            $table->date('final_date');
             $table->unsignedBigInteger('create_for');
-            $table->timestamps();
             $table->foreign('create_for')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_patient')->references('id')->on('patients')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('exercises');
+        Schema::dropIfExists('trainings');
     }
 };
