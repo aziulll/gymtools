@@ -26,11 +26,13 @@ Route::post('logout', [AuthProfessionalController::class, 'logout'])->middleware
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::prefix('personal')->group(function () {
+        Route::get('/', [PersonalController::class, 'index']);
         Route::get('personals/{id}', [PersonalController::class, 'show']);
         Route::put('personals/{id}', [PersonalController::class, 'update']);
     });
 
     Route::prefix('exercise')->group(function () {
+        Route::get('/', [ExercisesController::class, 'index']);
         Route::post('exercise/new', [ExercisesController::class, 'store']);
         Route::get('exercise/{id}', [ExercisesController::class, 'show']);
         Route::put('exercise/{id}', [ExercisesController::class, 'update']);
